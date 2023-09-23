@@ -9,4 +9,4 @@ import {serveStatic} from "fullstack-utils/hono-cloudflare-content";
 
 app.use(serveStatic())
 ```
-(Hono)[https://hono.dev/] middleware for serving static content.
+[Hono](https://hono.dev/) middleware for serving static content.
