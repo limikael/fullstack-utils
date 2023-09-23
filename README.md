@@ -10,3 +10,16 @@ import {serveStatic} from "fullstack-utils/hono-cloudflare-content";
 app.use(serveStatic())
 ```
 [Hono](https://hono.dev/) middleware for serving static content.
+
+## hono-https-redirect
+
+```javascript
+import {httpsRedirect} from "fullstack-utils/hono-https-redirect";
+
+// ...
+
+app.use(httpsRedirect())
+```
+[Hono](https://hono.dev/) middleware for redirecting all requests to HTTPS.
+
+### httpRedirect(options)
