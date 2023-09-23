@@ -23,3 +23,4 @@ app.use(httpsRedirect())
 [Hono](https://hono.dev/) middleware for redirecting all requests to HTTPS.
 
 ### httpRedirect(options)
+* _options_
