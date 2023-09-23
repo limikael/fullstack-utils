@@ -1,0 +1,23 @@
+{
+  "name": "fullstack-utils",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./hono-cloudflare-content": {
+      "import": "./src/hono-cloudflare-content.js"
+    },
+    "./hono-https-redirect": {
+      "import": "./src/hono-https-redirect.js"
+    },
+    "./hono-quick-rpc": {
+      "import": "./src/hono-quick-rpc.js"
+    },
+    "./use-quick-rpc": {
+      "import": "./src/use-quick-rpc.jsx"
+    }
+  },
+  "dependencies": {
+    "hono": "^3.7.2"
+  }
+}
