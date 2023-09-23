@@ -2,7 +2,7 @@
 Assorted collection of middlewares, hooks and components
 
 ## hono-cloudflare-content
-```
+```javascript
 import {serveStatic} from "fullstack-utils/hono-cloudflare-content";
 
 // ...
