@@ -30,7 +30,7 @@ class QuickRpc {
 		if (response.status<200 || response.status>=300)
 			throw new Error(await response.text());
 
-		return await response.json();
+		return (await response.json()).result;
 	}
 }
 

@@ -12,6 +12,6 @@ export function quickRpc(cls) {
 		if (result===undefined)
 			result=null;
 
-		return Response.json(result);
+		return Response.json({result: result});
 	}
 }
