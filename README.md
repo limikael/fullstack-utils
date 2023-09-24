@@ -1,6 +1,11 @@
 # fullstack-utils
 Assorted collection of middlewares, hooks and components
 
+- [#hono-cloudflare-content]
+-
+-
+-
+
 ## hono-cloudflare-content
 [Hono](https://hono.dev/) middleware for serving static content. Use it like this:
 ```javascript
@@ -42,5 +47,6 @@ class Api {
 app.use("/myapi",quickRpc(Api))
 ```
 Now a JSON-RPC endpoint will exist on `/myapi`. All methods exposed by the class will be made available
-as JSON-RPC methods. An instance of the class will be constructed for each request, and the request context
-will be passed to the constructor.
+as JSON-RPC methods. The positional parameters passed in the JSON-RPC call will be passed to the method,
+named parameters are not supported. An instance of the class will be constructed for each request, 
+and the request context will be passed to the constructor.
