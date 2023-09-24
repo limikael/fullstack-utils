@@ -20,11 +20,10 @@ The reason why it exists is that it handles ETags differently than Hono's built 
 ```javascript
 import {httpsRedirect} from "fullstack-utils/hono-https-redirect";
 // ...assume app is a Hono instance.
-app.use("*",httpsRedirect())
+app.use("*",httpsRedirect({/* ...options... */}))
 ```
-### httpRedirect(options)
-* __options__:
-  * __ignore__ - Array of hostnames to ignore and not perform redirect. Default `["localhost"]`.
+The `httpsRedirect` function accepts a configuration object with the following members:
+* __ignore__ - Array of hostnames to ignore and not perform redirect. Default `["localhost"]`.
 
 ## hono-quick-rpc
 [Hono](https://hono.dev/) middleware for creating an RPC endpoint. The enpoint is for the most part JSON-RPC
