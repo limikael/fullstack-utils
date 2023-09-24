@@ -29,6 +29,10 @@ compliant. Works like this:
 import {quickRpc} from "fullstack-utils/hono-quick-rpc";
 
 class Api {
+    constructor(context) {
+        // context is Hono request context
+    }
+
     function myfunc() {
         // ...
     }
@@ -37,3 +41,6 @@ class Api {
 // ...assume app is a Hono instance.
 app.use("/myapi",quickRpc(Api))
 ```
+Now a JSON-RPC endpoint will exist on `/myapi`. All methods exposed by the class will be made available
+as JSON-RPC methods. An instance of the class will be constructed for each request, and the request context
+will be passed to the constructor.
