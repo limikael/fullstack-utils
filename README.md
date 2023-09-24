@@ -23,4 +23,5 @@ app.use(httpsRedirect())
 [Hono](https://hono.dev/) middleware for redirecting all requests to HTTPS.
 
 ### httpRedirect(options)
-* _options_
+* __options__:
+  * __ignore__ - Array of hostnames to ignore and not perform redirect. Default `["localhost"]`.
