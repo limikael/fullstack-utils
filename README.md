@@ -1,10 +1,10 @@
 # fullstack-utils
-Assorted collection of middlewares, hooks and components
+Assorted collection of Hono middlewares, Preact hooks and components.
 
-- [hono-cloudflare-content](#hono-cloudflare-content)
--
--
--
+- __[hono-cloudflare-content](#hono-cloudflare-content)__ - Serve static content with ETag support.
+- __[hono-https-redirect](#hono-cloudflare-content)__ - Redirect all requests to HTTPS.
+- __[hono-quick-rpc](#hono-quick-rpc)__ - Expose JSON-RPC API.
+- __[use-quick-rpc](#use-quick-rpc)__ - Client for calling JSON-RPC endpoints.
 
 ## hono-cloudflare-content
 [Hono](https://hono.dev/) middleware for serving static content. Use it like this:
@@ -27,8 +27,9 @@ app.use("*",httpsRedirect())
   * __ignore__ - Array of hostnames to ignore and not perform redirect. Default `["localhost"]`.
 
 ## hono-quick-rpc
-[Hono](https://hono.dev/) for creating an RPC endpoint. The enpoint is for the most part JSON-RPC
-compliant. Works like this:
+[Hono](https://hono.dev/) middleware for creating an RPC endpoint. The enpoint is for the most part JSON-RPC
+compliant, but the main focus is not compliance but convenience in creating APIs for internal
+client-server communication in projects. Works like this:
 
 ```javascript
 import {quickRpc} from "fullstack-utils/hono-quick-rpc";
@@ -50,3 +51,30 @@ Now a JSON-RPC endpoint will exist on `/myapi`. All methods exposed by the class
 as JSON-RPC methods. The positional parameters passed in the JSON-RPC call will be passed to the method,
 named parameters are not supported. An instance of the class will be constructed for each request, 
 and the request context will be passed to the constructor.
+
+## use-quick-rpc
+A React context and hook for calling JSON-RPC endpoints. In order to use it, you need to first provide a
+context on a higher level in your component tree:
+
+```javascript
+import {QuickRpcProvider} from "fullstack-utils/use-quick-rpc";
+
+function TopLevelComponent({children}) {
+    return (
+        <QuickRpcProvider url="/myapi" fetch={fetch}>
+            {children}
+        </QuickRpcProvider>
+    );
+}
+```
+
+Then, you can make calls to the api in further down in your child components:
+```javascript
+import {useQuickRpc} from "fullstack-utils/use-quick-rpc";
+
+function ChildComponent() {
+    let api=useQuickRpc();
+    let result=await api.myfunc();
+    // ...
+}
+```
