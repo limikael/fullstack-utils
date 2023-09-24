@@ -1,7 +1,7 @@
 # fullstack-utils
 Assorted collection of middlewares, hooks and components
 
-- [#hono-cloudflare-content]
+- [hono-cloudflare-content](#hono-cloudflare-content)
 -
 -
 -
