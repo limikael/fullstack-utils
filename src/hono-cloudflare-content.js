@@ -6,7 +6,8 @@ let mimeTypes={
 	".jpeg": "image/jpeg",
 	".png": "image/png",
 	".js": "text/javascript",
-	".css": "text/css"
+	".css": "text/css",
+	".svg": "image/svg+xml"
 };
 
 export default class CloudflareContent {
