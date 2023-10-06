@@ -8,7 +8,8 @@ let mimeTypes={
 	".js": "text/javascript",
 	".css": "text/css",
 	".svg": "image/svg+xml",
-	".webp": "image/webp"
+	".webp": "image/webp",
+	".wasm": "application/wasm",
 };
 
 export default class CloudflareContent {
