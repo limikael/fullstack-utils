@@ -15,6 +15,9 @@
     },
     "./use-quick-rpc": {
       "import": "./src/use-quick-rpc.jsx"
+    },
+    "./quick-rpc": {
+      "import": "./src/quick-rpc.js"
     }
   },
   "dependencies": {
