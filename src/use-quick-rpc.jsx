@@ -1,5 +1,5 @@
 import {createContext, useContext} from "react";
-import QuickRpc from "./quick-rpc.js";
+import {QuickRpc} from "./quick-rpc.js";
 
 let QuickRpcContext=createContext();
 

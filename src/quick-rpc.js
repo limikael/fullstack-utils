@@ -7,18 +7,18 @@ let proxyMethodHandler={
 };
 
 export class QuickRpc {
-	constructor({fetch, url}) {
+	constructor({fetch, url, headers}) {
 		this.fetch=fetch;
 		this.url=url;
 		this.proxy=new Proxy(this,proxyMethodHandler);
+		this.headers=new Headers(headers);
+		this.headers.set("content-type","application/json");
 	}
 
 	async callMethod(method, params) {
 		let response=await this.fetch(this.url,{
 			method: "POST",
-			headers: new Headers({
-				"content-type": "application/json"
-			}),
+			headers: this.headers,
 			body: JSON.stringify({
 				method: method,
 				params: params
