@@ -8,10 +8,19 @@ export function quickRpc(cls) {
 		if (!instance[body.method])
 			throw new HTTPException(404,{message: "Not found"});
 
-		let result=await instance[body.method](...body.params);
-		if (result===undefined)
-			result=null;
+		try {
+			let result=await instance[body.method](...body.params);
+			if (result===undefined)
+				result=null;
 
-		return Response.json({result: result});
+			return Response.json({result: result});
+		}
+
+		catch (e) {
+			console.error(e);
+			return new Response(e.message,{
+				status: 500
+			});
+		}
 	}
 }
