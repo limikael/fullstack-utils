@@ -8,6 +8,9 @@ let proxyMethodHandler={
 
 export class QuickRpc {
 	constructor({fetch, url, headers}) {
+		if (!fetch)
+			fetch=globalThis.fetch.bind(globalThis);
+
 		this.fetch=fetch;
 		this.url=url;
 		this.proxy=new Proxy(this,proxyMethodHandler);
