@@ -1,10 +1,12 @@
 # fullstack-utils
-Assorted collection of Hono middlewares, Preact hooks and components.
+Assorted collection of Hono middlewares, Preact hooks and various other components and functions that I
+saw myself using over and over.
 
 - __[hono-cloudflare-content](#hono-cloudflare-content)__ - Serve static content with ETag support.
 - __[hono-https-redirect](#hono-cloudflare-content)__ - Redirect all requests to HTTPS.
 - __[hono-quick-rpc](#hono-quick-rpc)__ - Expose JSON-RPC API.
 - __[use-quick-rpc](#use-quick-rpc)__ - Client for calling JSON-RPC endpoints.
+- __[fetch-ex](#fetch-ex)__ - Wrapper for the fetch call.
 
 ## hono-cloudflare-content
 [Hono](https://hono.dev/) middleware for serving static content. Use it like this:
@@ -77,3 +79,6 @@ function ChildComponent() {
     // ...
 }
 ```
+
+## fetch-ex
+A wrapper for the `fetch` call.
