@@ -6,7 +6,7 @@ export function quickRpc(cls) {
 		let instance=new cls(c);
 
 		if (!instance[body.method])
-			throw new HTTPException(404,{message: "Not found"});
+			throw new HTTPException(404,{message: "Not found: "+body.method});
 
 		try {
 			let result=await instance[body.method](...body.params);
