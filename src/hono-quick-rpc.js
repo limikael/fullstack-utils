@@ -3,7 +3,20 @@ import {HTTPException} from "hono/http-exception";
 export function quickRpc(cls) {
 	return async (c, next)=>{
 		let body=await c.req.raw.json();
-		let instance=new cls(c);
+
+		//console.log("received call for: "+body.method);
+		let instance;
+		try {
+			instance=new cls(c);
+		}
+
+		catch (e) {
+			console.log("unable to create api instance...");
+			console.log(e);
+			throw e;
+		}
+
+		//console.log("instance created...");
 
 		if (!instance[body.method])
 			throw new HTTPException(404,{message: "Not found: "+body.method});

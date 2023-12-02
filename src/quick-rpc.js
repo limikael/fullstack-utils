@@ -19,6 +19,8 @@ export class QuickRpc {
 	}
 
 	async callMethod(method, params) {
+		//console.log("calling: "+method);
+
 		let response=await this.fetch(this.url,{
 			method: "POST",
 			headers: this.headers,
@@ -30,6 +32,8 @@ export class QuickRpc {
 
 		if (response.status<200 || response.status>=300)
 			throw new Error(await response.text());
+
+		//console.log("call complete...");
 
 		return (await response.json()).result;
 	}
