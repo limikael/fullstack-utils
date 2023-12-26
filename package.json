@@ -1,6 +1,6 @@
 {
   "name": "fullstack-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -21,6 +21,9 @@
     },
     "./fetch-ex": {
       "import": "./src/fetch-ex.js"
+    },
+    "./use-feather": {
+      "import": "./src/use-feather.js"
     }
   },
   "dependencies": {
