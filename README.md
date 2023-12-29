@@ -7,6 +7,7 @@ saw myself using over and over.
 - __[hono-quick-rpc](#hono-quick-rpc)__ - Expose JSON-RPC API.
 - __[use-quick-rpc](#use-quick-rpc)__ - Client for calling JSON-RPC endpoints.
 - __[fetch-ex](#fetch-ex)__ - Wrapper for the fetch call.
+- __[use-feather](#use-feather)__ - Spring based animations, similar to react-spring.
 
 ## hono-cloudflare-content
 [Hono](https://hono.dev/) middleware for serving static content. Use it like this:
@@ -82,3 +83,23 @@ function ChildComponent() {
 
 ## fetch-ex
 A wrapper for the `fetch` call.
+
+## use-feather
+A spring based animation tool.
+
+```javascript
+import {useFeather} from "fullstack-utils/use-feather";
+
+function MyComponent() {
+    let ref=useRef();
+    let feather=useFeather(v=>ref.current.style.opacity=`${v}%`);
+
+    feather.setTarget(100);
+
+    return (
+        <div ref={ref}>
+            fading...
+        </div>
+    );
+}
+```

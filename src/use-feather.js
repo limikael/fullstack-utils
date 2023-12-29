@@ -42,14 +42,35 @@ class Feather {
     this.target=value;
     this.velocity=0;
 
+    if (this.targetDelayTimeout) {
+      clearTimeout(this.targetDelayTimeout);
+      this.targetDelayTimeout=null;
+    }
+
     if (this.initialEffectHasRan)
       this.setter(this.value);
   }
 
   setTarget(target) {
+    if (this.targetDelayTimeout) {
+      clearTimeout(this.targetDelayTimeout);
+      this.targetDelayTimeout=null;
+    }
+
     this.target=target;
     if (!this.isAtRest())
       this.requestAnimation();
+  }
+
+  setTargetDelayed(target, delay) {
+    if (this.targetDelayTimeout) {
+      clearTimeout(this.targetDelayTimeout);
+      this.targetDelayTimeout=null;
+    }
+
+    this.targetDelayTimeout=setTimeout(()=>{
+      this.setTarget(target);
+    },delay);
   }
 
   getTarget() {
