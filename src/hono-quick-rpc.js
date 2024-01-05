@@ -7,7 +7,11 @@ export function quickRpc(cls) {
 		//console.log("received call for: "+body.method);
 		let instance;
 		try {
-			instance=new cls(c);
+			if (typeof cls=="function" && !cls.prototype)
+				instance=await cls(c);
+
+			else
+				instance=new cls(c);
 		}
 
 		catch (e) {
