@@ -1,6 +1,6 @@
 # fullstack-utils
 Assorted collection of Hono middlewares, Preact hooks and various other components and functions that I
-saw myself using over and over.
+saw myself using over and over...
 
 - __[hono-cloudflare-content](#hono-cloudflare-content)__ - Serve static content with ETag support.
 - __[hono-https-redirect](#hono-cloudflare-content)__ - Redirect all requests to HTTPS.
